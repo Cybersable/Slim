@@ -129,6 +129,7 @@ class FetchDataCommand extends Command
         foreach ($xml->channel->item as $item) {
             $trailer = $this->getMovie((string) $item->title)
                 ->setTitle((string) $item->title)
+                //->setSlug((string) $item->title)
                 ->setDescription((string) $item->description)
                 ->setLink((string) $item->link)
                 ->setPubDate($this->parseDate((string) $item->pubDate))

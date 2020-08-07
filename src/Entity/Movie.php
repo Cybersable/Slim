@@ -38,6 +38,12 @@ final class Movie
 
     /**
      * @var string|null
+     * @ORM\Column()
+     */
+    private $slug;
+
+    /**
+     * @var string|null
      * @ORM\Column(type="text")
      */
     private $description;
@@ -100,6 +106,25 @@ final class Movie
         $this->title = $title;
 
         return $this;
+    }
+
+    /**
+     * @param string|null $title
+     * @return Movie
+     */
+    public function setSlug(?string $title): self
+    {
+        $this->slug = 'test';
+
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getSlug(): ?string
+    {
+        return $this->slug;
     }
 
     /**

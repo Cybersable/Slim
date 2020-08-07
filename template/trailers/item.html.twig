@@ -1,0 +1,36 @@
+{% extends 'main.html.twig' %}
+
+{% block title %}{{ trailer.title }}{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="col-12">
+            <div class="row mb-3">
+                <h1>
+                    {{ trailer.title }}
+                </h1>
+            </div>
+            <div class="row justify-content-center mb-3">
+                <img src="{{ trailer.link }}/images/background.jpg" alt="{{ trailer.title }}" class="">
+            </div>
+            <div class="row">
+                <span class="font-weight-bold">
+                    Описание:
+                </span>
+                <p>
+                    {{ trailer.description }}
+                </p>
+            </div>
+            <div class="row">
+                <span class="font-weight-bold">
+                    Источник:&nbsp;
+                </span>
+                <p>
+                    <a href="{{ trailer.link }}">
+                        {{ trailer.link }}
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div>
+{% endblock %}
