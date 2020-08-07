@@ -9,6 +9,7 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\Mapping\Index;
+use EasySlugger\Slugger;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\MovieRepository")
@@ -114,7 +115,8 @@ final class Movie
      */
     public function setSlug(?string $title): self
     {
-        $this->slug = 'test';
+        $slugger = new Slugger();
+        $this->slug = $slugger->slugify($title);
 
         return $this;
     }

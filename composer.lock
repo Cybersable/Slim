@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "dcc75e09d73ea8bbb4e0c68a7b09f50d",
+    "content-hash": "3aaef332420b9beb847f367d279c52da",
     "packages": [
         {
             "name": "clue/stream-filter",
@@ -1192,6 +1192,36 @@
                 "url"
             ],
             "time": "2019-07-01T23:21:34+00:00"
+        },
+        {
+            "name": "javiereguiluz/easyslugger",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/javiereguiluz/EasySlugger.git",
+                "reference": "11524a3fd70e3f0c98043755a0ffa228f2529211"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/javiereguiluz/EasySlugger/zipball/11524a3fd70e3f0c98043755a0ffa228f2529211",
+                "reference": "11524a3fd70e3f0c98043755a0ffa228f2529211",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "EasySlugger\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "A fast and easy to use slugger with full UTF-8 support.",
+            "time": "2015-04-12T19:57:10+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -5652,5 +5682,6 @@
         "ext-json": "*",
         "ext-simplexml": "*"
     },
-    "platform-dev": []
+    "platform-dev": [],
+    "plugin-api-version": "1.1.0"
 }
