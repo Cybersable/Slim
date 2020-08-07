@@ -5,12 +5,19 @@
 {% block content %}
     <div class="container">
         <h1 class="mt-5 mb-4">{{ trailers | length }} iTunes Movie trailers</h1>
-        <table class="table table-bordered">
+        <div class="row">
             {% for trailer in trailers %}
-                <tr>
-                    <td>{{ trailer.title }}</td>
-                </tr>
+                <div class="col-3 py-3">
+                    <div class="card h-100">
+                        <img class="card-img-top" src="{{ trailer.link }}/images/poster.jpg" alt="{{ trailer.title }}">
+                        <div class="card-body">
+                            <a href="/trailer/{{ trailer.slug }}">
+                                <h5 class="card-title">{{ trailer.title }}</h5>
+                            </a>
+                        </div>
+                    </div>
+                </div>
             {% endfor %}
-        </table>
+        </div>
     </div>
 {% endblock %}

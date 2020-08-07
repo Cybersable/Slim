@@ -135,6 +135,9 @@ class FetchDataCommand extends Command
             ;
 
             $this->doctrine->persist($trailer);
+            if (count($this->doctrine->getUnitOfWork()->getScheduledEntityInsertions()) == 10) {
+                break;
+            }
         }
 
         $this->doctrine->flush();
