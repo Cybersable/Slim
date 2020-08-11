@@ -30,8 +30,7 @@ class Config
         }
 
         $config = Yaml::parseFile($dir . '/app.yaml');
-        $envConfigPath = $dir . '/app.' . $env . '.yaml';
-        if (is_readable($envConfigPath)) {
+        if (is_readable($envConfigPath = $dir . '/app.' . $env . '.yaml')) {
             $config = array_replace_recursive($config, Yaml::parseFile($envConfigPath));
         }
 
