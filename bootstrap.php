@@ -13,11 +13,7 @@ use UltraLite\Container\Container;
 require_once __DIR__ . '/vendor/autoload.php';
 
 (new Dotenv())->loadEnv(__DIR__ . '/.env');
-
-$env = getenv('APP_ENV');
-if (!$env) {
-    $env = 'dev';
-}
+$env = getenv('APP_ENV') ?? 'dev';
 
 $config = new Config(__DIR__ . '/config', $env, __DIR__);
 
@@ -34,14 +30,15 @@ $container = new Container([
 ]);
 
 foreach ($providers as $providerClassName) {
-    if (!class_exists($providerClassName)) {
-        throw new RuntimeException(sprintf('Provider %s not found', $providerClassName));
+    if (class_exists($providerClassName)) {
+        if (($provider = new $providerClassName) instanceof ServiceProviderInterface) {
+            $provider->register($container);
+        } else {
+            throw  new RuntimeException(sprintf('%s class is not a Service Provider', $providerClassName));
+        }
+    } else {
+        throw  new RuntimeException(sprintf('Provider %s not found', $providerClassName));
     }
-    $provider = new $providerClassName;
-    if (!($provider instanceof ServiceProviderInterface)) {
-        throw new RuntimeException(sprintf('%s class is not a Service Provider', $providerClassName));
-    }
-    $provider->register($container);
 }
 
 return $container;
